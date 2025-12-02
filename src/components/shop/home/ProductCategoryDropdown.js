@@ -3,6 +3,7 @@ import { useHistory } from "react-router-dom";
 import { HomeContext } from "./index";
 import { getAllCategory } from "../../admin/categories/FetchApi";
 import "./style.css";
+import FilterSearchDropdown from "./FilterSearchDropdown";
 
 const apiURL = process.env.REACT_APP_API_URL;
 
@@ -61,6 +62,7 @@ const ProductCategoryDropdown = (props) => {
   return (
     <Fragment>
       <CategoryList />
+      <FilterSearchDropdown />
     </Fragment>
   );
 };

@@ -11,8 +11,6 @@ const ProductSearchDropdown = () => {
     });
   };
 
-  if (!data.searchDropdown) return null;
-
   return (
     <div className="mt-3 p-4 bg-white shadow-md rounded-md border w-full">
       <h3 className="font-semibold mb-2">Search Products</h3>
