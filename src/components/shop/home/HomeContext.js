@@ -3,6 +3,7 @@ export const homeState = {
   filterListDropdown: false,
   searchDropdown: false,
   products: null,
+  productsOriginal: null,
   loading: false,
   sliderImages: [],
 };
@@ -23,6 +24,24 @@ export const homeReducer = (state, action) => {
         filterListDropdown: action.payload,
         searchDropdown: false,
       };
+    case "applyFilter":
+      const { min, max } = action.payload;
+
+      return {
+        ...state,
+        products:
+          state.productsOriginal &&
+          state.productsOriginal.filter((item) => {
+            const price = Number(item.pPrice);
+
+            if (min && price < Number(min)) return false;
+            if (max && price > Number(max)) return false;
+
+            return true;
+          }),
+
+        filterListDropdown: false,
+      };
     case "searchDropdown":
       return {
         ...state,
@@ -34,6 +53,7 @@ export const homeReducer = (state, action) => {
       return {
         ...state,
         products: action.payload,
+        productsOriginal: action.payload,
       };
     case "searchHandleInReducer":
       return {

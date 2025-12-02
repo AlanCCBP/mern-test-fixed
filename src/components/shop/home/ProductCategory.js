@@ -1,6 +1,8 @@
 import React, { Fragment, useContext } from "react";
 import ProductCategoryDropdown from "./ProductCategoryDropdown";
 import { HomeContext } from "./index";
+import ProductFilterDropdown from "./ProductFilterDropdown";
+import ProductSearchDropdown from "./ProductSearchDrowdown";
 
 const ProductCategory = (props) => {
   const { data, dispatch } = useContext(HomeContext);
@@ -15,9 +17,8 @@ const ProductCategory = (props) => {
               payload: !data.categoryListDropdown,
             })
           }
-          className={`flex items-center space-x-1 cursor-pointer ${
-            data.categoryListDropdown ? "text-yellow-700" : ""
-          }`}
+          className={`flex items-center space-x-1 cursor-pointer ${data.categoryListDropdown ? "text-yellow-700" : ""
+            }`}
         >
           <span className="text-md md:text-lg hover:text-yellow-700">
             Categories
@@ -45,9 +46,8 @@ const ProductCategory = (props) => {
                 payload: !data.filterListDropdown,
               })
             }
-            className={`flex items-center space-x-1 cursor-pointer ${
-              data.filterListDropdown ? "text-yellow-700" : ""
-            }`}
+            className={`flex items-center space-x-1 cursor-pointer ${data.filterListDropdown ? "text-yellow-700" : ""
+              }`}
           >
             <span className="text-md md:text-lg">Filter</span>
             <span>
@@ -75,9 +75,8 @@ const ProductCategory = (props) => {
                 payload: !data.searchDropdown,
               })
             }
-            className={`flex items-center space-x-1 cursor-pointer ${
-              data.searchDropdown ? "text-yellow-700" : ""
-            }`}
+            className={`flex items-center space-x-1 cursor-pointer ${data.searchDropdown ? "text-yellow-700" : ""
+              }`}
           >
             <span className="text-md md:text-lg">Search</span>
             <span>
@@ -100,6 +99,7 @@ const ProductCategory = (props) => {
         </div>
       </div>
       <ProductCategoryDropdown />
+      <ProductFilterDropdown />
     </Fragment>
   );
 };
