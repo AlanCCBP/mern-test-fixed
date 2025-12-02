@@ -56,18 +56,17 @@ export const homeReducer = (state, action) => {
         productsOriginal: action.payload,
       };
     case "searchHandleInReducer":
+      const query = action.payload.toUpperCase();
+
       return {
         ...state,
         products:
-          action.productArray &&
-          action.productArray.filter((item) => {
-            if (
-              item.pName.toUpperCase().indexOf(action.payload.toUpperCase()) !==
-              -1
-            ) {
-              return item;
-            }
-            return null;
+          state.productsOriginal &&
+          state.productsOriginal.filter((item) => {
+            const inTitle = item.pName.toUpperCase().includes(query);
+            const inDesc = item.pDescription?.toUpperCase().includes(query);
+
+            return inTitle || inDesc;
           }),
       };
     case "loading":

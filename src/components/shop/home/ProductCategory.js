@@ -100,6 +100,7 @@ const ProductCategory = (props) => {
       </div>
       <ProductCategoryDropdown />
       <ProductFilterDropdown />
+      <ProductSearchDropdown />
     </Fragment>
   );
 };
